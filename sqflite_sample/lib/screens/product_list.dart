@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sqflite_sample/data/dbHelper.dart';
 import 'package:sqflite_sample/models/product.dart';
+import 'package:sqflite_sample/screens/product_add.dart';
 
 class ProductList extends StatefulWidget {
   @override
@@ -14,10 +15,7 @@ class _ProductListState extends State<ProductList> {
 
   @override
   void initState() {
-    var productsFuture = dbHelper.getProducts();
-    productsFuture.then((data) {
-      this.products = data;
-    });
+    getProducts();
   }
 
   @override
@@ -27,6 +25,13 @@ class _ProductListState extends State<ProductList> {
         title: Text("Product List"),
       ),
       body: buildProductList(),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          goToProductAdd();
+        },
+        child: Icon(Icons.add),
+        tooltip: "New product add",
+      ),
     );
   }
 
@@ -35,11 +40,11 @@ class _ProductListState extends State<ProductList> {
         itemCount: productCount,
         itemBuilder: (BuildContext context, int index) {
           return Card(
-            color: Colors.cyan,
+            color: Colors.yellow[100],
             elevation: 2.0,
             child: ListTile(
               leading: CircleAvatar(
-                backgroundColor: Colors.black12,
+                backgroundColor: Colors.redAccent,
                 child: Text("P"),
               ),
               title: Text(this.products[index].name),
@@ -48,5 +53,24 @@ class _ProductListState extends State<ProductList> {
             ),
           );
         });
+  }
+
+  void goToProductAdd() async {
+    bool result = await Navigator.push(
+        context, MaterialPageRoute(builder: (context) => ProductAdd()));
+
+    if (result != null) {
+      if (result) {
+        getProducts();
+      }
+    }
+  }
+
+  void getProducts() async {
+    var productsFuture = dbHelper.getProducts();
+    productsFuture.then((data) {
+      this.products = data;
+      productCount = data.length;
+    });
   }
 }
