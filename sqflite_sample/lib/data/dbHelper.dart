@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:flutter/rendering.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:sqflite_sample/models/product.dart';
