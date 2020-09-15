@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sqflite_sample/data/dbHelper.dart';
 import 'package:sqflite_sample/models/product.dart';
 import 'package:sqflite_sample/screens/product_add.dart';
+import 'package:sqflite_sample/screens/product_detail.dart';
 
 class ProductList extends StatefulWidget {
   @override
@@ -40,16 +41,18 @@ class _ProductListState extends State<ProductList> {
         itemCount: productCount,
         itemBuilder: (BuildContext context, int index) {
           return Card(
-            color: Colors.yellow[100],
+            color: Colors.purple,
             elevation: 2.0,
             child: ListTile(
               leading: CircleAvatar(
-                backgroundColor: Colors.redAccent,
+                backgroundColor: Colors.yellow,
                 child: Text("P"),
               ),
               title: Text(this.products[index].name),
               subtitle: Text(this.products[index].description),
-              onTap: () {},
+              onTap: () {
+                goToDetail(this.products[index]);
+              },
             ),
           );
         });
@@ -69,8 +72,20 @@ class _ProductListState extends State<ProductList> {
   void getProducts() async {
     var productsFuture = dbHelper.getProducts();
     productsFuture.then((data) {
-      this.products = data;
-      productCount = data.length;
+      setState(() {
+        this.products = data;
+        productCount = data.length;
+      });
     });
+  }
+
+  void goToDetail(Product product) async {
+    bool result = await Navigator.push(context,
+        MaterialPageRoute(builder: (context) => ProductDetail(product)));
+    if (result != null) {
+      if (result) {
+        getProducts();
+      }
+    }
   }
 }
