@@ -24,6 +24,7 @@ class _ProductListState extends State<ProductList> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Product List"),
+        backgroundColor: Colors.purple,
       ),
       body: buildProductList(),
       floatingActionButton: FloatingActionButton(
@@ -41,11 +42,11 @@ class _ProductListState extends State<ProductList> {
         itemCount: productCount,
         itemBuilder: (BuildContext context, int index) {
           return Card(
-            color: Colors.purple,
+            color: Colors.yellow,
             elevation: 2.0,
             child: ListTile(
               leading: CircleAvatar(
-                backgroundColor: Colors.yellow,
+                backgroundColor: Colors.purple,
                 child: Text("P"),
               ),
               title: Text(this.products[index].name),

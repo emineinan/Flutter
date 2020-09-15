@@ -17,6 +17,7 @@ class _ProductAddState extends State<ProductAdd> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Adding New Products"),
+        backgroundColor: Colors.purple,
       ),
       body: buildBody(),
     );
