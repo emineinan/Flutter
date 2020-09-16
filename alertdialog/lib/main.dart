@@ -27,8 +27,7 @@ class MyApp extends StatelessWidget {
               title: Text("Exam Result"),
               content: Text(message),
             );
-
-            showDialog(
+           showDialog(
                 context: context, builder: (BuildContext context) => alert);
           },
         ),
