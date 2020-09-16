@@ -23,7 +23,7 @@ class TutorialOnePage extends StatelessWidget {
           style: TextStyle(
             color: Colors.red,
             fontStyle: FontStyle.italic,
-            fontSize: 30,
+            fontSize: 35,
           )),
     );
   }
