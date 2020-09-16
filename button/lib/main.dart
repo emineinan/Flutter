@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
 class TutorialButtonPage extends StatelessWidget {
   const TutorialButtonPage({Key key}) : super(key: key);
 
-  void onPress() {
+ void onPress() {
     print("This is a floating action button.");
   }
 
