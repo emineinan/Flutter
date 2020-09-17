@@ -8,7 +8,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Material App',
       home: Scaffold(
-        body: Center(child: TutorialButtonPage()),
+      body: Center(child: TutorialButtonPage()),
       ),
     );
   }
