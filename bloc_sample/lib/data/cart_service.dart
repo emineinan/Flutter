@@ -19,7 +19,7 @@ class CartService {
     cartItems.remove(item);
   }
 
-  static List<Cart> getCartItems(Cart item) {
+  static List<Cart> getCartItems() {
     return cartItems;
   }
 }
