@@ -13,6 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
           title: Text("Survey"),
@@ -69,10 +70,15 @@ class _SurveyListState extends State<SurveyList> {
           border: Border.all(color: Colors.blue),
         ),
         child: ListTile(
-          title: Text(row.name),
-          trailing: Text(row.vote.toString()),
-          onTap: () => print(row.name),
-        ),
+            title: Text(row.name),
+            trailing: Text(row.vote.toString()),
+            onTap: () =>
+                FirebaseFirestore.instance.runTransaction((transaction) async {
+                  final freshSnapshot = await transaction.get(row.reference);
+                  final fresh = Survey.fromSnapshot(freshSnapshot);
+                  await transaction
+                      .update((row.reference), {'vote': fresh.vote + 1});
+                })),
       ),
     );
   }
