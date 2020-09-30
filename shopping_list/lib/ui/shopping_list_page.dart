@@ -11,6 +11,18 @@ class _ShoppingListPageState extends State<ShoppingListPage> {
   int _selectedIndex = 0;
   final PageController _pageController = PageController();
   @override
+  void initState() {
+    _pageController.addListener(() {
+      int currentIndex = _pageController.page.round();
+      if (currentIndex != _selectedIndex) {
+        _selectedIndex = currentIndex;
+        setState(() {});
+      }
+    });
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
