@@ -24,11 +24,8 @@ class _ItemDialogState extends State<ItemDialog> {
                   maxLength: 50,
                   onSaved: (value) => _itemName = value,
                   autofocus: true,
-                  validator: (value) {
-                    if (value.isEmpty) {
-                      return "valdiation error";
-                    }
-                  },
+                  validator: (value) =>
+                      value.isEmpty ? "validation error" : null,
                 ),
               ),
               SizedBox(
