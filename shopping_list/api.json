@@ -1,0 +1,20 @@
+[
+    {
+      "id": 1,
+      "name": "Apple",
+      "isCompleted": true,
+      "isArchived": false
+    },
+    {
+      "id": 2,
+      "name": "Pepper",
+      "isCompleted": false,
+      "isArchived": false
+    },
+    {
+      "id": 3,
+      "name": "Lettuce",
+      "isCompleted": false,
+      "isArchived": false
+    }
+]
