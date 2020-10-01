@@ -11,8 +11,8 @@ class ShoppingListPage extends StatefulWidget {
 
 class _ShoppingListPageState extends State<ShoppingListPage> {
   int _selectedIndex = 0;
-  final PageController _pageController = PageController();
   final _scaffoldState = GlobalKey<ScaffoldState>();
+  final PageController _pageController = PageController();
   ItemService _itemService;
 
   @override
@@ -22,6 +22,7 @@ class _ShoppingListPageState extends State<ShoppingListPage> {
       int currentIndex = _pageController.page.round();
       if (currentIndex != _selectedIndex) {
         _selectedIndex = currentIndex;
+
         setState(() {});
       }
     });
@@ -31,65 +32,37 @@ class _ShoppingListPageState extends State<ShoppingListPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        key: _scaffoldState,
-        appBar: AppBar(
-          title: Text("Shopping List"),
-        ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () async {
-            String itemName = await showDialog(
-              context: context,
-              builder: (BuildContext context) => ItemDialog(),
-            );
-            if (itemName.isNotEmpty) {
-              var item =
-                  Item(name: itemName, isCompleted: false, isArchived: false);
-              try {
-                await _itemService.addItem(item);
-                setState(() {});
-              } catch (e) {
-                _scaffoldState.currentState
-                    .showSnackBar(SnackBar(content: Text(e.toString())));
-              }
-            }
-          },
-          child: Icon(Icons.add),
-        ),
-        bottomNavigationBar: buildBottomNavigationBar(),
-        body: buildPageView());
-  }
-
-  BottomNavigationBar buildBottomNavigationBar() {
-    return BottomNavigationBar(
-      items: [
-        BottomNavigationBarItem(icon: Icon(Icons.home), title: Text("Home")),
-        BottomNavigationBarItem(
-            icon: Icon(Icons.list), title: Text("Shoppling List")),
-        BottomNavigationBarItem(
-            icon: Icon(Icons.history), title: Text("History")),
-      ],
-      currentIndex: _selectedIndex,
-      onTap: (value) {
-        setState(() {
-          _selectedIndex = value;
-        });
-        _pageController.jumpToPage(value);
-      },
+      key: _scaffoldState,
+      bottomNavigationBar: BottomNavigationBar(
+        items: [
+          BottomNavigationBarItem(icon: Icon(Icons.home), title: Text("Home")),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.list), title: Text("Shopiing List")),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.history), title: Text("History")),
+        ],
+        currentIndex: _selectedIndex,
+        onTap: _onTap,
+      ),
+      body: PageView(
+        controller: _pageController,
+        children: <Widget>[
+          Container(
+            color: Colors.red,
+          ),
+          ShoppingListItemPage(),
+          Container(
+            color: Colors.orange,
+          ),
+        ],
+      ),
     );
   }
 
-  PageView buildPageView() {
-    return PageView(
-      controller: _pageController,
-      children: <Widget>[
-        Container(
-          color: Colors.purpleAccent,
-        ),
-        ShoppingListItemPage(),
-        Container(
-          color: Colors.yellowAccent,
-        ),
-      ],
-    );
+  void _onTap(int value) {
+    setState(() {
+      _selectedIndex = value;
+    });
+    _pageController.jumpToPage(value);
   }
 }
