@@ -1,3 +1,4 @@
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -50,6 +51,23 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  final FirebaseMessaging _firebaseMessaging = FirebaseMessaging();
+
+  @override
+  void initState() {
+    super.initState();
+
+    Future.delayed(Duration.zero, () {
+      this.firebaseCloudMessagingListeners(context);
+    });
+  }
+
+  void firebaseCloudMessagingListeners(BuildContext context) {
+    _firebaseMessaging.getToken().then((deviceToken) {
+      print("Firebase Device token: $deviceToken");
+    });
+  }
+
   int _counter = 0;
 
   void _incrementCounter() {
