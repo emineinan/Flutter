@@ -1,7 +1,9 @@
+import 'package:coffee_app/services/auth.dart';
 import 'package:flutter/material.dart';
 
 class Register extends StatefulWidget {
-  Register({Key key}) : super(key: key);
+  final Function tooglePage;
+  Register({Key key, this.tooglePage}) : super(key: key);
 
   @override
   _RegisterState createState() => _RegisterState();
@@ -16,6 +18,24 @@ class _RegisterState extends State<Register> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.blueGrey,
+      appBar: AppBar(
+        backgroundColor: Colors.red,
+        title: Text("Register"),
+        actions: <Widget>[
+          FlatButton.icon(
+              onPressed: () {
+                widget.tooglePage();
+              },
+              icon: Icon(
+                Icons.person,
+                color: Colors.white,
+              ),
+              label: Text(
+                "Sign IN",
+                style: TextStyle(color: Colors.white),
+              ))
+        ],
+      ),
       body: Center(
         child: Container(
             padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 50.0),
