@@ -1,14 +1,14 @@
-import 'package:coffee_app/services/auth.dart';
 import 'package:flutter/material.dart';
 
-class SignIn extends StatefulWidget {
-  SignIn({Key key}) : super(key: key);
+class Register extends StatefulWidget {
+  Register({Key key}) : super(key: key);
 
   @override
-  _SignInState createState() => _SignInState();
+  _RegisterState createState() => _RegisterState();
 }
 
-class _SignInState extends State<SignIn> {
+class _RegisterState extends State<Register> {
+  @override
   final AuthService _authService = AuthService();
   String email = "";
   String password = "";
@@ -53,7 +53,7 @@ class _SignInState extends State<SignIn> {
                     },
                     color: Colors.red,
                     child: Text(
-                      "SIGN IN",
+                      "REGISTER",
                       style: TextStyle(color: Colors.white),
                     ),
                   )
