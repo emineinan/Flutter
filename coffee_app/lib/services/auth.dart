@@ -18,4 +18,16 @@ class AuthService {
       return null;
     }
   }
+
+  Future signOut() async {
+    try {
+      return await _auth.signOut();
+    } catch (e) {
+      return null;
+    }
+  }
+
+  Stream<User> get user {
+    return _auth.onAuthStateChanged.map(_comingFromFirebase);
+  }
 }
