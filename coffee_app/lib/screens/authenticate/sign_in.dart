@@ -1,4 +1,5 @@
 import 'package:coffee_app/services/auth.dart';
+import 'package:coffee_app/shared/constants.dart';
 import 'package:flutter/material.dart';
 
 class SignIn extends StatefulWidget {
@@ -20,6 +21,7 @@ class _SignInState extends State<SignIn> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomPadding: false,
       backgroundColor: Colors.blueGrey,
       appBar: AppBar(
         backgroundColor: Colors.red,
@@ -57,6 +59,7 @@ class _SignInState extends State<SignIn> {
                         email = value;
                       });
                     },
+                    decoration: inputDecoration.copyWith(hintText: "Email"),
                   ),
                   SizedBox(
                     height: 20.0,
@@ -71,6 +74,7 @@ class _SignInState extends State<SignIn> {
                         password = value;
                       });
                     },
+                    decoration: inputDecoration.copyWith(hintText: "Password"),
                   ),
                   SizedBox(
                     height: 50.0,

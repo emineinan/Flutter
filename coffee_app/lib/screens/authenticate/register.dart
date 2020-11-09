@@ -1,4 +1,5 @@
 import 'package:coffee_app/services/auth.dart';
+import 'package:coffee_app/shared/constants.dart';
 import 'package:flutter/material.dart';
 
 class Register extends StatefulWidget {
@@ -19,6 +20,7 @@ class _RegisterState extends State<Register> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomPadding: false,
       backgroundColor: Colors.blueGrey,
       appBar: AppBar(
         backgroundColor: Colors.red,
@@ -56,6 +58,7 @@ class _RegisterState extends State<Register> {
                         email = value;
                       });
                     },
+                    decoration: inputDecoration.copyWith(hintText: "Email"),
                   ),
                   SizedBox(
                     height: 20.0,
@@ -70,6 +73,7 @@ class _RegisterState extends State<Register> {
                         password = value;
                       });
                     },
+                    decoration: inputDecoration.copyWith(hintText: "Password"),
                   ),
                   SizedBox(
                     height: 50.0,
