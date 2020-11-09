@@ -33,7 +33,7 @@ class _RegisterState extends State<Register> {
                 color: Colors.white,
               ),
               label: Text(
-                "Sign IN",
+                "Sign In",
                 style: TextStyle(color: Colors.white),
               ))
         ],
