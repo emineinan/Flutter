@@ -12,4 +12,8 @@ class DatabaseService {
         .document(uid)
         .setData({"name:": name, "sugar": sugar, "strength": strength});
   }
+
+  Stream<QuerySnapshot> get orders {
+    return orderCollection.snapshots();
+  }
 }
