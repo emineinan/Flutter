@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:coffee_app/models/order.dart';
 
 class DatabaseService {
   final String uid;
@@ -13,7 +14,16 @@ class DatabaseService {
         .setData({"name:": name, "sugar": sugar, "strength": strength});
   }
 
-  Stream<QuerySnapshot> get orders {
-    return orderCollection.snapshots();
+  List<Order> _snapshotOrders(QuerySnapshot snap) {
+    return snap.documents.map((doc) {
+      return Order(
+          name: doc.data["name"] ?? " ",
+          sugar: doc.data["sugar"] ?? " ",
+          strength: doc.data["strength"] ?? 0);
+    }).toList();
+  }
+
+  Stream<List<Order>> get orders {
+    return orderCollection.snapshots().map(_snapshotOrders);
   }
 }

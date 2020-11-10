@@ -1,4 +1,4 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:coffee_app/models/order.dart';
 import 'package:coffee_app/screens/home/order_list.dart';
 import 'package:coffee_app/services/auth.dart';
 import 'package:coffee_app/services/database.dart';
@@ -16,7 +16,7 @@ class _HomeState extends State<Home> {
   final AuthService _auth = AuthService();
   @override
   Widget build(BuildContext context) {
-    return StreamProvider<QuerySnapshot>.value(
+    return StreamProvider<List<Order>>.value(
       value: DatabaseService().orders,
       child: Scaffold(
         backgroundColor: Colors.blueGrey,

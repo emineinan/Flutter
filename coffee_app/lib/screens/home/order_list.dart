@@ -1,4 +1,4 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:coffee_app/models/order.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -12,11 +12,12 @@ class OrderList extends StatefulWidget {
 class _OrderListState extends State<OrderList> {
   @override
   Widget build(BuildContext context) {
-    final orders = Provider.of<QuerySnapshot>(context);
-    print(orders.documents);
-    for (var item in orders.documents) {
-      print(item.data);
-    }
+    final orders = Provider.of<List<Order>>(context);
+    orders.forEach((order) {
+      print(order.name);
+      print(order.sugar);
+      print(order.strength);
+    });
     return Container();
   }
 }
