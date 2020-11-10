@@ -1,4 +1,5 @@
 import 'package:coffee_app/models/order.dart';
+import 'package:coffee_app/screens/home/order_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -18,6 +19,12 @@ class _OrderListState extends State<OrderList> {
       print(order.sugar);
       print(order.strength);
     });
-    return Container();
+    return ListView.builder(
+        itemCount: orders.length,
+        itemBuilder: (context, index) {
+          return OrderTile(
+            order: orders[index],
+          );
+        });
   }
 }
