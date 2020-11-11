@@ -1,5 +1,6 @@
 import 'package:coffee_app/models/order.dart';
 import 'package:coffee_app/screens/home/order_list.dart';
+import 'package:coffee_app/screens/home/settings_form.dart';
 import 'package:coffee_app/services/auth.dart';
 import 'package:coffee_app/services/database.dart';
 import 'package:flutter/material.dart';
@@ -14,6 +15,19 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   final AuthService _auth = AuthService();
+
+  void showSettingsPanel() {
+    showModalBottomSheet(
+        context: context,
+        builder: (context) {
+          return Container(
+            color: Colors.red,
+            padding: EdgeInsets.all(20.0),
+            child: SettingForm(),
+          );
+        });
+  }
+
   @override
   Widget build(BuildContext context) {
     return StreamProvider<List<Order>>.value(
@@ -25,6 +39,17 @@ class _HomeState extends State<Home> {
           title: Text("Home"),
           actions: <Widget>[
             FlatButton.icon(
+              onPressed: () {
+                showSettingsPanel();
+              },
+              icon: Icon(
+                Icons.settings,
+                color: Colors.white,
+              ),
+              label: Text("Settings"),
+              textColor: Colors.white,
+            ),
+            FlatButton.icon(
               onPressed: () async {
                 await _auth.signOut();
               },
@@ -34,7 +59,7 @@ class _HomeState extends State<Home> {
               ),
               label: Text("Sign Out"),
               textColor: Colors.white,
-            )
+            ),
           ],
         ),
         body: OrderList(),
