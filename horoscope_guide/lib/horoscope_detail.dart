@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class HoroscopeDetail extends StatelessWidget {
-  const HoroscopeDetail({Key key}) : super(key: key);
+  int index;
+  HoroscopeDetail(this.index);
 
   @override
   Widget build(BuildContext context) {
