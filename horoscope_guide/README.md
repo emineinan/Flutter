@@ -1,16 +1,2 @@
-# horoscope_guide
-
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+# Horoscope Guide
+<img src=https://user-images.githubusercontent.com/56589369/99288917-547cf400-284d-11eb-836d-4c4e923900ce.png height="430" width="250"> <img src=https://user-images.githubusercontent.com/56589369/99288919-5646b780-284d-11eb-9950-58114c7582fe.png height="430" width="250">
