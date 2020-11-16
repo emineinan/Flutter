@@ -3,7 +3,7 @@ import 'package:horoscope_guide/models/horoscope.dart';
 import 'package:horoscope_guide/utils/strings.dart';
 
 class HoroscopeList extends StatelessWidget {
-  List<Horoscope> horoscopes;
+  static List<Horoscope> horoscopes;
 
   @override
   Widget build(BuildContext context) {

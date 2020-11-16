@@ -33,17 +33,17 @@ class Strings {
   ];
 
   static const List<String> HOROSCOPE_FEATURES = [
-    "Strengths: responsible, disciplined, self-control, good managers \nWeaknesses: know-it-all, unforgiving, condescending, expecting the worst",
-    "Strengths: Progressive, original, independent, humanitarian \nWeaknesses: Runs from emotional expression, temperamental, uncompromising, aloof",
-    "Strengths: Compassionate, artistic, intuitive, gentle, wise, musical \nWeaknesses: Fearful, overly trusting, sad, desire to escape reality, can be a victim or a martyr",
-    "Strengths: courageous, determined, confident, enthusiastic, optimistic, honest, passionate \nWeaknesses: impatient, moody, short-tempered, impulsive, aggressive",
-    "Strengths: reliable, patient, practical, devoted, responsible, stable \nWeaknesses: stubborn, possessive, uncompromising",
-    "Strengths: gentle, affectionate, curious, adaptable, ability to learn quickly and exchange ideas \nWeaknesses: nervous, inconsistent, indecisive",
-    "Strengths: tenacious, highly imaginative, loyal, emotional, sympathetic, persuasive \nWeaknesses: moody, pessimistic, suspicious, manipulative, insecure",
-    "Strengths: creative, passionate, generous, warm-hearted, cheerful, humorous \nWeaknesses: arrogant, stubborn, self-centered, lazy, inflexible",
-    "Strengths: loyal, analytical, kind, hardworking, practical \nWeaknesses: shyness, worry, overly critical of self and others, all work and no play",
-    "Strengths: cooperative, diplomatic, gracious, fair-minded, social \nWeaknesses: indecisive, avoids confrontations, will carry a grudge, self-pity",
-    "Strengths: resourceful, brave, passionate, stubborn, a true friend \nWeaknesses: distrusting, jealous, secretive, violent",
-    "Strengths: generous, idealistic, great sense of humor \nWeaknesses: promises more than can deliver, very impatient, will say anything no matter how undiplomatic",
+    "Strengths: responsible, disciplined, self-control, good managers \n\nWeaknesses: know-it-all, unforgiving, condescending, expecting the worst",
+    "Strengths: Progressive, original, independent, humanitarian \n\nWeaknesses: Runs from emotional expression, temperamental, uncompromising, aloof",
+    "Strengths: Compassionate, artistic, intuitive, gentle, wise, musical \n\nWeaknesses: Fearful, overly trusting, sad, desire to escape reality, can be a victim or a martyr",
+    "Strengths: courageous, determined, confident, enthusiastic, optimistic, honest, passionate \n\nWeaknesses: impatient, moody, short-tempered, impulsive, aggressive",
+    "Strengths: reliable, patient, practical, devoted, responsible, stable \n\nWeaknesses: stubborn, possessive, uncompromising",
+    "Strengths: gentle, affectionate, curious, adaptable, ability to learn quickly and exchange ideas \n\nWeaknesses: nervous, inconsistent, indecisive",
+    "Strengths: tenacious, highly imaginative, loyal, emotional, sympathetic, persuasive \n\nWeaknesses: moody, pessimistic, suspicious, manipulative, insecure",
+    "Strengths: creative, passionate, generous, warm-hearted, cheerful, humorous \n\nWeaknesses: arrogant, stubborn, self-centered, lazy, inflexible",
+    "Strengths: loyal, analytical, kind, hardworking, practical \n\nWeaknesses: shyness, worry, overly critical of self and others, all work and no play",
+    "Strengths: cooperative, diplomatic, gracious, fair-minded, social \n\nWeaknesses: indecisive, avoids confrontations, will carry a grudge, self-pity",
+    "Strengths: resourceful, brave, passionate, stubborn, a true friend \n\nWeaknesses: distrusting, jealous, secretive, violent",
+    "Strengths: generous, idealistic, great sense of humor \n\nWeaknesses: promises more than can deliver, very impatient, will say anything no matter how undiplomatic",
   ];
 }
